@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-
+            text2 += (char) (int) arr.get(i);
         }
         showText.setText(text2);
     }
