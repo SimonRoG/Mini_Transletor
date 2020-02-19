@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText editText;
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }else if(index == 2){
                 //kirpVinc();
             }else if(index == 3){
-
+                asciiRev();
             }else if(index == 4){
 
             }else{
@@ -191,6 +193,47 @@ public class MainActivity extends AppCompatActivity {
         String text2 = "";
         for (int i = 0; i < text1.length(); i++) {
             text2 += (int) text1.charAt(i) + " ";
+        }
+        showText.setText(text2);
+    }
+
+
+    private void asciiRev(){
+        String text1 = String.valueOf(editText.getText());
+        String text2 = "";
+        int k = 0;
+        char a;
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int i = 0; i < text1.length(); i++) {
+            arr.set(i, 0);
+            for (int j = k; j < text1.length(); j++) {
+                a = text1.charAt(j);
+                k = j;
+                if(a == '0'){
+                    arr.set(i, arr.get(i)*10);
+                } else if (a == '1'){
+                    arr.set(i, (arr.get(i)+1)*10);
+                } else if (a == '2'){
+                    arr.set(i, (arr.get(i)+2)*10);
+                } else if (a == '3'){
+                    arr.set(i, (arr.get(i)+3)*10);
+                } else if (a == '4'){
+                    arr.set(i, (arr.get(i)+4)*10);
+                } else if (a == '5'){
+                    arr.set(i, (arr.get(i)+5)*10);
+                } else if (a == '6'){
+                    arr.set(i, (arr.get(i)+6)*10);
+                } else if (a == '7'){
+                    arr.set(i, (arr.get(i)+7)*10);
+                } else if (a == '8'){
+                    arr.set(i, (arr.get(i)+8)*10);
+                } else if (a == '9'){
+                    arr.set(i, (arr.get(i)+9)*10);
+                } else if (a == ' '){
+                    break;
+                }
+            }
+
         }
         showText.setText(text2);
     }
