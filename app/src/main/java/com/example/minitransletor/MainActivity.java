@@ -1,7 +1,6 @@
 package com.example.minitransletor;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -14,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -103,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
     public void onClickMethodButton(View view) {
         if(anInt1 == 0){
@@ -197,46 +193,21 @@ public class MainActivity extends AppCompatActivity {
         showText.setText(text2);
     }
 
-
     private void asciiRev(){
         String text1 = String.valueOf(editText.getText());
         String text2 = "";
-        int k = 0;
-        char a;
+        String[] words = text1.split(" ");
         ArrayList<Integer> arr = new ArrayList<>();
-        for (int i = 0; i < text1.length(); i++) {
-            arr.set(i, 0);
-            for (int j = k; j < text1.length(); j++) {
-                a = text1.charAt(j);
-                k = j;
-                if(a == '0'){
-                    arr.set(i, arr.get(i)*10);
-                } else if (a == '1'){
-                    arr.set(i, (arr.get(i)+1)*10);
-                } else if (a == '2'){
-                    arr.set(i, (arr.get(i)+2)*10);
-                } else if (a == '3'){
-                    arr.set(i, (arr.get(i)+3)*10);
-                } else if (a == '4'){
-                    arr.set(i, (arr.get(i)+4)*10);
-                } else if (a == '5'){
-                    arr.set(i, (arr.get(i)+5)*10);
-                } else if (a == '6'){
-                    arr.set(i, (arr.get(i)+6)*10);
-                } else if (a == '7'){
-                    arr.set(i, (arr.get(i)+7)*10);
-                } else if (a == '8'){
-                    arr.set(i, (arr.get(i)+8)*10);
-                } else if (a == '9'){
-                    arr.set(i, (arr.get(i)+9)*10);
-                } else if (a == ' '){
-                    break;
-                }
+        for (int i = 0; i < words.length; i++) {
+            arr.add(i);
+            try {
+                arr.set(i, Integer.valueOf(words[i]));
+                text2 += (char) (int) arr.get(i);
+            } catch (NumberFormatException e) {
+                text2 += words[i];
             }
-            text2 += (char) (int) arr.get(i);
         }
         showText.setText(text2);
     }
-
 
 }
