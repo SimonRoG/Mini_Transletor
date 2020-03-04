@@ -89,4 +89,16 @@
         app:layout_constraintEnd_toStartOf="@+id/methodButton"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/shareButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#d6d6d6"
+        android:onClick="onClickShareButton"
+        app:layout_constraintBottom_toBottomOf="@+id/showText"
+        app:layout_constraintEnd_toStartOf="@+id/showText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/showText"
+        app:srcCompat="?attr/actionModeShareDrawable" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

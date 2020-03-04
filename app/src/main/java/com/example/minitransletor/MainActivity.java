@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             }else if(index == 1){
                 kirpSem();
             }else if(index == 2){
-                //kirpVinc();
+                kirpVincRev();
             }else if(index == 3){
                 asciiRev();
             }else if(index == 4){
@@ -125,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
             text2 += arr[i];
         }
         showText.setText(text2);
+    }
+
+    private void kirpVincRev() {
+
     }
 
     private void kirpSem(){
@@ -210,4 +215,16 @@ public class MainActivity extends AppCompatActivity {
         showText.setText(text2);
     }
 
+    public void onClickShareButton(View view) {
+        if(showText.getText().equals("")){
+            Toast.makeText(getApplicationContext(),"here is nothing",Toast.LENGTH_SHORT).show();
+        }else {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, showText.getText());
+            sendIntent.setType("text/plain");
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
+        }
+    }
 }
